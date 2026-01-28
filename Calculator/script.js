@@ -1,39 +1,39 @@
-function calculate() {
+function compute() {
 
-    // INPUTS
-    let attendance = parseFloat(prompt("Enter Attendance Score:"));
+    let attendance = parseFloat(prompt("Enter Attendance Grade:"));
     let lab1 = parseFloat(prompt("Enter Lab Work 1 Grade:"));
     let lab2 = parseFloat(prompt("Enter Lab Work 2 Grade:"));
     let lab3 = parseFloat(prompt("Enter Lab Work 3 Grade:"));
 
-    // COMPUTATIONS
-    let labWorkAverage = (lab1 + lab2 + lab3) / 3;
-    let classStanding = (attendance * 0.40) + (labWorkAverage * 0.60);
+    let labAverage = (lab1 + lab2 + lab3) / 3;
+    let classStanding = (attendance * 0.40) + (labAverage * 0.60);
 
-    let requiredPrelimPass =
-        (75 - (classStanding * 0.70)) / 0.30;
+    let requiredPass = (75 - (classStanding * 0.70)) / 0.30;
+    let requiredExcellent = (100 - (classStanding * 0.70)) / 0.30;
 
-    let requiredPrelimExcellent =
-        (100 - (classStanding * 0.70)) / 0.30;
+    let remarks = "";
 
-    // OUTPUT
-    let output =
-        "===== PRELIM GRADE COMPUTATION =====\n\n" +
-        "Attendance Score: " + attendance + "\n" +
-        "Lab Work 1: " + lab1 + "\n" +
-        "Lab Work 2: " + lab2 + "\n" +
-        "Lab Work 3: " + lab3 + "\n" +
-        "Lab Work Average: " + labWorkAverage.toFixed(2) + "\n" +
-        "Class Standing: " + classStanding.toFixed(2) + "\n\n" +
-        "Required Prelim Exam Score:\n" +
-        "To PASS (75): " + requiredPrelimPass.toFixed(2) + "\n" +
-        "To be EXCELLENT (100): " + requiredPrelimExcellent.toFixed(2);
-
-    if (requiredPrelimPass <= 100) {
-        output += "\n\nRemark: You still have a chance to pass.";
+    if (requiredPass <= 100) {
+        remarks += "You can still PASS the Prelim.\n";
     } else {
-        output += "\n\nRemark: Passing the prelim is no longer possible.";
+        remarks += "Passing is no longer possible.\n";
     }
 
-    alert(output);
+    if (requiredExcellent <= 100) {
+        remarks += "Excellent standing is achievable.";
+    } else {
+        remarks += "Excellent standing is not achievable.";
+    }
+
+    alert(
+        "Attendance: " + attendance +
+        "\nLab 1: " + lab1 +
+        "\nLab 2: " + lab2 +
+        "\nLab 3: " + lab3 +
+        "\nLab Work Average: " + labAverage.toFixed(2) +
+        "\nClass Standing: " + classStanding.toFixed(2) +
+        "\n\nRequired Exam to PASS (75): " + requiredPass.toFixed(2) +
+        "\nRequired Exam for EXCELLENT (100): " + requiredExcellent.toFixed(2) +
+        "\n\nRemarks:\n" + remarks
+    );
 }
