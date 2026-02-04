@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Record System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Student Record System</h2>
+        <div class="form-container">
+            <input id="id" placeholder="Student ID (9 digits)" type="text" maxlength="9">
+            <input id="name" placeholder="Full Name" type="text">
+            <input id="grade" placeholder="Grade (0-100)" type="number" min="0" max="100">
+            <button onclick="addStudent()">Add</button>
+            <button onclick="resetForm()">Reset</button>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Grade</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+        </table>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
